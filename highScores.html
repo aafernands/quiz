@@ -8,25 +8,22 @@
     <meta name="Description" content="Enter your description here" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Code Quiz</title>
-
-</head>
+    <link rel="stylesheet" href="highScores.css">
+    <title>Leadboard</title>
 
 <body>
 
     <div class="container">
-        <div id="home" class="flex-coluwn flex-content">
-            <h1>Code Quiz</h1>
-            <h6>Answer the following code-related questions within the time limit. Incorrect answers wil penalize
-                your
-                socre by 10 seconds. Good luck!</h6>
-            <a href="game.html" class="btn">Start Quiz</a>
-            <a href="highScores.html" id="highScore-btn" class="btn">High Scores <i class="fas fa-crown"></i></a>
+        <div id="highScores" class="flex-center flex-column">
+            <h1 id="finalScore">Leadboard</h1>
+            <ul id="highScoresList"></ul>
+            <a href="index.html" class="btn">Go Home<i class="fas fa-home"></i></a>
         </div>
+
     </div>
 
-    <script src="game.js"></script>
+
+    <script src="highScores.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

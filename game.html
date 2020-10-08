@@ -11,7 +11,7 @@
 
 <body>
 
-    
+
     <div class="container">
         <div id="game" class="justify-center flex-column">
             <div id="hud">
@@ -19,11 +19,12 @@
                     <p id="progressText" class="hud-prefix">
                         Questions
                     </p>
-                    <div id="progressBar">
+                    <!-- <div id="progressBar">
                         <div id="progressBarFull"></div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="hud-item">
+                    <div id="timer"></div>
                     <p class="hud-prefix">
                         Score
                     </p>
@@ -31,6 +32,10 @@
                         0
                     </h1>
                 </div>
+
+
+
+
             </div>
             <h1 id="question">What's is the answer?</h1>
             <div class="choice-container">
@@ -53,12 +58,15 @@
                 <p class="choice-text" data-number="4">Choice 4</p>
             </div>
         </div>
+
+
     </div>
 
+    <!-- <div id="question-result"></div> -->
 
     <script src="game.js"></script>
 
-    
+
 
 </body>
 

@@ -8,25 +8,29 @@
     <meta name="Description" content="Enter your description here" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="end.css">
     <title>Code Quiz</title>
-
-</head>
 
 <body>
 
     <div class="container">
-        <div id="home" class="flex-coluwn flex-content">
-            <h1>Code Quiz</h1>
-            <h6>Answer the following code-related questions within the time limit. Incorrect answers wil penalize
-                your
-                socre by 10 seconds. Good luck!</h6>
-            <a href="game.html" class="btn">Start Quiz</a>
-            <a href="highScores.html" id="highScore-btn" class="btn">High Scores <i class="fas fa-crown"></i></a>
+        <div id="end" class="flex-center flex-column">
+            <h1 id="finalScore">0</h1>
+            <form class="end-form-container">
+                <h2 id="end-text"> Enter your name below save your final Score:</h2>
+                <input type="text" name="name" id="username" placeholder="Enter Your Name">
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)"
+                    disabled>Save</button>
+                <br>
+            </form>
+            <a href="game.html" class="btn">Play Again</a>
+            <br>
+            <a href="index.html" class="btn">Go Home<i class="fas fa-home"></i></a>
+
         </div>
     </div>
 
-    <script src="game.js"></script>
+    <script src="end.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

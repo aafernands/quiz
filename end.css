@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 :root {
-	background-image: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+	background-image: linear-gradient(
+		0deg,
+		rgba(34, 193, 195, 1) 0%,
+		rgba(253, 187, 45, 1) 100%
+	);
 	background-repeat: no-repeat;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -12,21 +16,7 @@
 	margin: 0px;
 	padding: 0px;
 	font-size: 15px;
-	font-family: 'Roboto', sans-serif;
-}
-
-
-
-h1 {
-	font-size: 5.4rem;
-	color: #fff;
-	margin-bottom: 5rem;
-}
-
-h6 {
-	font-size: 15px;
-	color: #fff;
-	margin-bottom: 4rem;
+	font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -38,7 +28,6 @@ h6 {
 	max-width: 80rem;
 	margin: 0 auto;
 	padding: 2rem;
-
 }
 
 .flex-column {
@@ -51,16 +40,30 @@ h6 {
 	align-items: center;
 }
 
-.justify-center {
-	justify-content: center;
+.end-form-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 30rem;
 }
 
-.text-center {
-	text-align: center;
+input {
+	margin-bottom: 1rem;
+	width: 20rem;
+	padding: 1.5rem;
+	font-size: 2rem;
+	border: none;
 }
 
-hidden {
-	display: none;
+input::placeholder {
+	color: #aaa;
+}
+
+#username {
+	margin-bottom: 3rem;
+	width: 100%;
+	outline: none;
 }
 
 .btn {
@@ -93,18 +96,29 @@ hidden {
 	transform: none;
 }
 
-#highScore-btn {
-	background-color: #fffb00d8;
-}
-#highScore-btn:hover {
-	background-color: #dad611;
-	color: #ffffff;
-}
-
-.fa-crown {
+.fa-home {
 	font-size: 15px;
 	margin-left: 5px;
 	color: #616161;
 }
 
+h1 {
+	font-size: 4rem;
+	color: #fff;
+    margin-bottom: 5rem;
+    font-family: "Roboto", sans-serif;
+}
 
+h2 {
+	font-size: 2rem;
+	color: #fff;
+    margin-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+
+
+
+#saveScoreBtn {
+    border: none;
+}

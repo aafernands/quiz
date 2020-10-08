@@ -9,6 +9,7 @@ let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+var timerEl = document.querySelector("#timer");
 
 let questions = [
 	{
@@ -19,7 +20,6 @@ let questions = [
 		choice4: "numbers",
 		answer: 2,
 	},
-
 	{
 		question: "Whta the biggest City in the World?",
 		choice1: "NYC",
@@ -28,7 +28,14 @@ let questions = [
 		choice4: "Las Vegas",
 		answer: 3,
 	},
-
+	{
+		question: "The condition in an if / else statement is enclosed?",
+		choice1: "NYC",
+		choice2: "Sao Paulo",
+		choice3: "Dubai",
+		choice4: "Las Vegas",
+		answer: 4,
+	},
 	{
 		question: "The condition in an if / else statement is enclosed?",
 		choice1: "NYC",
@@ -39,8 +46,11 @@ let questions = [
 	},
 ];
 
+var intervalId;
+var time = 20;
+
 const SCORE_POINTS = 100;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 4;
 
 startGame = () => {
 	questionCounter = 0;
@@ -53,12 +63,12 @@ getNewQuestion = () => {
 	if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
 		localStorage.setItem("mostRecentScore", score);
 
-		return window.location.assign("/end.html");
+		return window.location.assign("end.html");
 	}
 
 	questionCounter++;
 	progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-	progresssBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+	// progresssBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
 	const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
 	currentQuestion = availableQuestions[questionsIndex];
