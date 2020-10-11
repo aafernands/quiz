@@ -69,7 +69,9 @@ startTime.addEventListener("click", function () {
 				currentTime.textContent = "Time's up!";
 			}
 		}, 1000);
-	}
+	
+
+
 });
 
 function render(questionIndex) {
