@@ -11,29 +11,22 @@
 
 <body>
 
-
-    <div class="container">
-        <div id="game" class="justify-center flex-column">
-            <div id="hud">
-                <div class="hdu-item">
-                    <p id="progressText" class="hud-prefix">
-                    </p>
-                </div>
-                <div class="hud-item">
-                    <!-- <h1>Time remaining:</h1> -->
-                    <div id="timer"></div>
-                </div>
-            </div>
+    <div class="wrapper">
+        <div class="container">
+            <div id="currentTime">0</div>
             <div class="questionsSection" id="questionsSection">
                 <ul id="choicesUl"></ul>
                 <button id="startTime">Start Quiz</button>
             </div>
         </div>
-
+        <footer>
+            <p>© 2020 Application Designed by <a href="https://twitter.com/alexafernands">AlexFernandes</a></span>
+            </p>
+            </p>
+        </footer>
     </div>
 
     <script src="game.js"></script>
-    <script src="end.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

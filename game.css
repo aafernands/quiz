@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
-:root {
+html,
+body,
+.wrapper {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;	
 	background-image: linear-gradient(
 		0deg,
 		rgba(34, 193, 195, 1) 0%,
@@ -10,6 +15,7 @@
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+
 
 * {
 	box-sizing: border-box;
@@ -22,7 +28,7 @@
 h1,
 #currentTime {
 	font-size: 40px;
-	color: #fff;
+	color: rgb(0, 0, 0);
 	margin-bottom: 10px;
 }
 
@@ -43,6 +49,9 @@ h6 {
 	color: #eee;
 	font-size: 25px;
 	padding: 20px;
+
+border-style: solid;
+bor
 }
 
 .container {
@@ -53,7 +62,7 @@ h6 {
 	align-items: center;
 	max-width: 80rem;
 	margin: 0 auto;
-	padding: 80px;
+	padding: 20px;
 }
 
 .choice-container {
@@ -101,37 +110,9 @@ h6 {
 .hud-main-text {
 	text-align: center;
 }
-#progressBar {
-	width: 100px;
-	height: 20px;
-	border: 1px solid green;
-	margin-top: 20px;
-	border-radius: 50px;
-	overflow: hidden;
-}
 
-#progressBarFull {
-	height: 100%;
-	border: 0.2rem solid green;
-	width: 0%;
-}
 
-@media only screen and (max-width: 768px) {
-	.choice-container {
-		min-width: 10%;
-	}
-}
 
-.result {
-}
-
-.answers {
-	background-color: ;
-}
-
-.question {
-	padding: 0px;
-}
 
 li {
 	background-color: #eee;
@@ -146,27 +127,33 @@ li:hover {
 }
 
 
+#wrapper {
+	padding: 100px;
+}
 
-
-
+#addNewDiv {
+	font-size: 20px;
+	padding: 20px;
+	align-items: center;
+	text-align: center;
+	
+}
 
 #addNewDiv {
 	animation: blinkingText 1.2s infinite;
 }
 @keyframes blinkingText {
 	0% {
-		color: rgb(255, 0, 0);
+		color: rgb(0, 0, 0);
 	}
 	50% {
 		color: rgb(244, 235, 235);
 	}
 
 	100% {
-		color: rgb(255, 3, 3);
+		color: rgb(150, 150, 150);
 	}
 }
-
-
 
 #createLabel {
 	font-size: 20px;
@@ -188,21 +175,26 @@ ul {
 	color: rgb(59, 59, 59);
 }
 
+
+
+
 #addNewH1 {
 	animation: blinkingText 1.2s infinite;
 }
 @keyframes blinkingText {
 	0% {
-		color: rgb(255, 0, 0);
+		color: rgb(142, 142, 142);
 	}
 	50% {
 		color: rgb(244, 235, 235);
 	}
 
 	100% {
-		color: rgb(255, 3, 3);
+		color: rgb(0, 0, 0);
 	}
 }
+
+
 
 #Submit {
 	color: rgb(47, 47, 47);
@@ -221,4 +213,14 @@ input {
 
 #addNewP {
 	font-size: 25px;
+}
+
+p, a{
+	font-size: 12px ;
+}
+
+footer{
+	margin: 0px;
+	padding: 0px 0px 50px 0px ;
+	text-align: center;	
 }
