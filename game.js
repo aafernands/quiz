@@ -1,6 +1,6 @@
 var questions = [
 	{
-		questionsTitle: "JavaScript is a ___ -side programming language.",
+		questionsTitle: "JavaScript is a ____ -side programming language.",
 		choices: ["Client", "Server", "Both", "None"],
 		correctAnswer: "Both",
 	},
@@ -50,6 +50,8 @@ var startTime = document.querySelector("#startTime");
 var questionsSection = document.querySelector("#questionsSection");
 var wrapper = document.querySelector("#wrapper");
 
+var timeRemaining;
+
 var score = 0;
 var questionIndex = 0;
 var secondsLeft = 76;
@@ -57,22 +59,24 @@ var holdInterval = 0;
 var penalty = 10;
 var addNewuL = document.createElement("ul");
 
-startTime.addEventListener("click", function () {
-	if (holdInterval === 0) {
-		holdInterval = setInterval(function () {
-			secondsLeft--;
-			currentTime.textContent = "Time : " + secondsLeft;
+window.addEventListener(
+	"load",
 
-			if (secondsLeft <= 0) {
-				clearInterval(holdInterval);
-				allDone();
-				currentTime.textContent = "Time's up!";
-			}
-		}, 1000);
-	
+	function () {
+		if (holdInterval === 0) {
+			holdInterval = setInterval(function () {
+				secondsLeft--;
+				currentTime.textContent = "Time : " + secondsLeft;
 
-
-});
+				if (secondsLeft <= 0) {
+					clearInterval(holdInterval);
+					allDone();
+					currentTime.textContent = "Time's up!";
+				}
+			}, 1000);
+		}
+	}
+);
 
 function render(questionIndex) {
 	questionsSection.innerHTML = "";
@@ -107,7 +111,11 @@ function compare(event) {
 			addNewDiv.textContent =
 				"WRONG! 😮  The answer is:  " + questions[questionIndex].correctAnswer;
 		}
+		setTimeout(function () {
+			addNewDiv.textContent = "";
+		}, 1500);
 	}
+
 	questionIndex++;
 
 	if (questionIndex >= questions.length) {
@@ -121,7 +129,9 @@ function compare(event) {
 			questions.length +
 			" Correct!";
 	} else {
-		render(questionIndex);
+		setTimeout(function () {
+			render(questionIndex);
+		}, 1500);
 	}
 	questionsSection.appendChild(addNewDiv);
 }
@@ -142,7 +152,7 @@ function allDone() {
 	questionsSection.appendChild(addNewP);
 
 	if (secondsLeft >= 0) {
-		var timeRemaining = secondsLeft;
+		timeRemaining = secondsLeft;
 		var addNewP2 = document.createElement("p");
 		clearInterval(holdInterval);
 		addNewP.textContent = "Your final score is: " + timeRemaining;
