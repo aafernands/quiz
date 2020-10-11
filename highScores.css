@@ -139,3 +139,9 @@ li{
 
 
 
+	.credits-footer {
+		text-align: center;
+		color: rgb(43, 43, 43);
+		margin-top: 150px;
+		font-size: 10px;
+	}

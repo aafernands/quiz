@@ -19,14 +19,12 @@
 	font-family: "Roboto", sans-serif;
 }
 
-h1, 
+h1,
 #currentTime {
 	font-size: 40px;
 	color: #fff;
 	margin-bottom: 10px;
 }
-
-
 
 #timer {
 	font-size: 30px;
@@ -40,13 +38,11 @@ h6 {
 	margin-bottom: 4rem;
 }
 
-
 .questionsSection {
 	font-family: "Roboto", sans-serif;
 	color: #eee;
 	font-size: 25px;
 	padding: 20px;
-
 }
 
 .container {
@@ -127,7 +123,6 @@ h6 {
 }
 
 .result {
-	
 }
 
 .answers {
@@ -143,26 +138,39 @@ li {
 	padding: 10px;
 	margin: 5px;
 	text-align: center;
-
 }
 
-li:hover{
+li:hover {
 	background-color: rgb(217, 217, 217);
 	color: rgb(89, 89, 89);
 }
 
 
+
+
+
+
 #addNewDiv {
-	color: white;
-	padding: 10px 20px 10px 20px;
-	text-align: center;
-	font-size: 25px;
+	animation: blinkingText 1.2s infinite;
 }
+@keyframes blinkingText {
+	0% {
+		color: rgb(255, 0, 0);
+	}
+	50% {
+		color: rgb(244, 235, 235);
+	}
+
+	100% {
+		color: rgb(255, 3, 3);
+	}
+}
+
+
 
 #createLabel {
 	font-size: 20px;
 	text-align: center;
-
 
 	color: #eee;
 }
@@ -173,8 +181,6 @@ li:hover{
 	color: #eee;
 }
 
-
-
 ul {
 	list-style-type: none;
 	margin: 0;
@@ -182,4 +188,37 @@ ul {
 	color: rgb(59, 59, 59);
 }
 
+#addNewH1 {
+	animation: blinkingText 1.2s infinite;
+}
+@keyframes blinkingText {
+	0% {
+		color: rgb(255, 0, 0);
+	}
+	50% {
+		color: rgb(244, 235, 235);
+	}
 
+	100% {
+		color: rgb(255, 3, 3);
+	}
+}
+
+#Submit {
+	color: rgb(47, 47, 47);
+	background-color: #eee;
+	padding: 5px;
+	border-style: none;
+	margin: 8px;
+}
+
+input {
+	color: rgb(47, 47, 47);
+	background-color: #eee;
+	padding: 5px;
+	border-style: none;
+}
+
+#addNewP {
+	font-size: 25px;
+}

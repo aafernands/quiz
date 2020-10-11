@@ -26,7 +26,6 @@ var questions = [
 	},
 ];
 
-
 var timer = document.querySelector("#timer");
 var startTime = document.querySelector("#startTime");
 var questionsSection = document.querySelector("#questionsSection");
@@ -38,7 +37,6 @@ var secondsLeft = 76;
 var holdInterval = 0;
 var penalty = 10;
 var addNewuL = document.createElement("ul");
-
 
 timer.addEventListener("click", function () {
 	// We are checking zero because its originally set to zero
@@ -82,12 +80,12 @@ function compare(event) {
 		if (element.textContent == questions[questionIndex].correctAnswer) {
 			score++;
 			addNewDiv.textContent =
-				"Correct! The correctAnswer is:  " +
+				"CORRECT! 😃  The correct answer is:  " +
 				questions[questionIndex].correctAnswer;
 		} else {
 			secondsLeft = secondsLeft - penalty;
 			addNewDiv.textContent =
-				"WRONG !  The correct correctAnswer is:  " +
+				"WRONG! 😮  The Answer is:  " +
 				questions[questionIndex].correctAnswer;
 		}
 	}
