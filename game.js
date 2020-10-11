@@ -1,6 +1,6 @@
 var questions = [
 	{
-		questionsTitle: "JavaScript is a ___ -side programming language.",
+		questionsTitle: "JavaScript is a ____ -side programming language.",
 		choices: ["Client", "Server", "Both", "None"],
 		correctAnswer: "Both",
 	},
