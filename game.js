@@ -57,8 +57,6 @@ var holdInterval = 0;
 var penalty = 10;
 var addNewuL = document.createElement("ul");
 
-
-
 startTime.addEventListener("click", function () {
 	if (holdInterval === 0) {
 		holdInterval = setInterval(function () {
