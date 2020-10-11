@@ -1,33 +1,79 @@
-const username = document.querySelector("#username");
-const saveScoreBtn = document.querySelector("#saveScoreBtn");
-const finalScore = document.querySelector("#finalScore");
-const mostRecentScore = document.querySelector("#mostRecentScore");
+function allDone() {
 
-const highScores = JSON.parse(localStorage.getItem("highScore")) || [];
 
-const MAX_HIGH_SCORES = 5;
 
-finalScore.innerText = mostRecentScore;
 
-username.addEventListener("keyup", () => {
-	saveScoreBtn, (disabled = !username.value);
-});
+	questionsSection.innerHTML = "";
+	timer.innerHTML = "";
 
-saGighScore = (e) => {
-	e.preventDefault();
+	var addNewH1 = document.createElement("h1");
+	addNewH1.setAttribute("id", "addNewH1");
+	addNewH1.textContent = "Game Over!!";
 
-	const score = {
-		score: mostRecentScore,
-		name: username.value,
-	};
+	questionsSection.appendChild(addNewH1);
 
-	highScores.push(score);
-	highScores.push(score);
+	var addNewP = document.createElement("p");
+	addNewP.setAttribute("id", "addNewP");
 
-	highScores.sort((a, b) => {
-		return b.score - a.score;
+	questionsSection.appendChild(addNewP);
+
+	if (secondsLeft >= 0) {
+		var timeRemaining = secondsLeft;
+		var addNewP2 = document.createElement("p");
+		clearInterval(holdInterval);
+		addNewP.textContent = "Your final score is: " + timeRemaining;
+
+		questionsSection.appendChild(addNewP2);
+	}
+
+	var addNewLabel = document.createElement("label");
+	addNewLabel.setAttribute("id", "addNewLabel");
+	addNewLabel.textContent = "Enter your initials: ";
+
+	questionsSection.appendChild(addNewLabel);
+
+	var createInput = document.createElement("input");
+	createInput.setAttribute("type", "text");
+	createInput.setAttribute("id", "initials");
+	createInput.textContent = "";
+
+	questionsSection.appendChild(createInput);
+
+	var addSubmitButton = document.createElement("button");
+	addSubmitButton.setAttribute("type", "submit");
+	addSubmitButton.setAttribute("id", "Submit");
+	addSubmitButton.textContent = "Submit";
+
+	questionsSection.appendChild(addSubmitButton);
+
+	addSubmitButton.addEventListener("click", function () {
+		var initials = createInput.value;
+
+		if (initials === null) {
+			console.log("No value entered!");
+		} else {
+			var finalScore = {
+				initials: initials,
+				score: timeRemaining,
+			};
+			console.log(finalScore);
+			var allScores = localStorage.getItem("allScores");
+			if (allScores === null) {
+				allScores = [];
+			} else {
+				allScores = JSON.parse(allScores);
+			}
+			allScores.push(finalScore);
+			var newScore = JSON.stringify(allScores);
+			localStorage.setItem("allScores", newScore);
+			// Travels to final page
+			window.location.replace("./HighScores.html");
+		}
 	});
-	highScores.splice(5);
-	localStorage.setItem("highscores", JSON.stringify(highScores));
-	window.location.assign("/");
-};
+}
+
+
+
+
+
+

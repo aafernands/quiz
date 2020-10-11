@@ -9,25 +9,28 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="highScores.css">
-    <title>Leadboard</title>
+    <title>High Scores</title>
 
 <body>
 
     <div class="container">
-        <div id="highScores" class="flex-center flex-column">
-            <h1 id="finalScore">Leadboard</h1>
-            <ul id="highScoresList"></ul>
-            <a href="index.html" class="btn">Go Home<i class="fas fa-home"></i></a>
+        <div id="highscores" class="flex-center flex-column">
+            <h1>HIGH SCORES</h1>
+            <h5>View highscores below, or click Coding Quiz in the top left corner to try again!</h5>
+            <div id="currentTime"></div>
+            <div id="questionsDiv">
+                <ul id="highScore"></ul>
+                <button class="btn" id="goBack">Go Back</button>
+                <button class="btn" id="clear" value="reset">Clear Highscore</button>
+            </div>
         </div>
-
     </div>
 
-
     <script src="highScores.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

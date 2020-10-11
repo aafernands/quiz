@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 :root {
-    background-image: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+	background-image: linear-gradient(
+		0deg,
+		rgba(34, 193, 195, 1) 0%,
+		rgba(253, 187, 45, 1) 100%
+	);
 	background-repeat: no-repeat;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -12,30 +16,48 @@
 	margin: 0px;
 	padding: 0px;
 	font-size: 15px;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
+}
+
+h1, 
+#currentTime {
+	font-size: 40px;
+	color: #fff;
+	margin-bottom: 10px;
 }
 
 
-h1 {
+
+#timer {
 	font-size: 30px;
-    color: #fff;
-    margin-bottom: 10px;
+	color: #fff;
+	margin-bottom: 10px;
 }
 
 h6 {
 	font-size: 15px;
 	color: #fff;
-    margin-bottom: 4rem;
+	margin-bottom: 4rem;
+}
+
+
+.questionsSection {
+	font-family: "Roboto", sans-serif;
+	color: #eee;
+	font-size: 25px;
+	padding: 20px;
+
 }
 
 .container {
+	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	max-width: 80rem;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: 80px;
 }
 
 .choice-container {
@@ -69,7 +91,7 @@ h6 {
 .incorrect {
 	background: red;
 }
- /* Heads up Display */
+/* Heads up Display */
 
 #hud {
 	display: flex;
@@ -98,9 +120,66 @@ h6 {
 	width: 0%;
 }
 
-
 @media only screen and (max-width: 768px) {
 	.choice-container {
-        min-width: 10%;
+		min-width: 10%;
 	}
 }
+
+.result {
+	
+}
+
+.answers {
+	background-color: ;
+}
+
+.question {
+	padding: 0px;
+}
+
+li {
+	background-color: #eee;
+	padding: 10px;
+	margin: 5px;
+	text-align: center;
+
+}
+
+li:hover{
+	background-color: rgb(217, 217, 217);
+	color: rgb(89, 89, 89);
+}
+
+
+#addNewDiv {
+	color: white;
+	padding: 10px 20px 10px 20px;
+	text-align: center;
+	font-size: 25px;
+}
+
+#createLabel {
+	font-size: 20px;
+	text-align: center;
+
+
+	color: #eee;
+}
+
+#createP {
+	font-size: 20px;
+	text-align: center;
+	color: #eee;
+}
+
+
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	color: rgb(59, 59, 59);
+}
+
+

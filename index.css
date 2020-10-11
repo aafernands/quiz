@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 :root {
-	background-image: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+	background-image: linear-gradient(
+		0deg,
+		rgba(34, 193, 195, 1) 0%,
+		rgba(253, 187, 45, 1) 100%
+	);
 	background-repeat: no-repeat;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -12,10 +16,8 @@
 	margin: 0px;
 	padding: 0px;
 	font-size: 15px;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 }
-
-
 
 h1 {
 	font-size: 5.4rem;
@@ -38,7 +40,6 @@ h6 {
 	max-width: 80rem;
 	margin: 0 auto;
 	padding: 2rem;
-
 }
 
 .flex-column {
@@ -106,6 +107,3 @@ hidden {
 	margin-left: 5px;
 	color: #616161;
 }
-
-
-

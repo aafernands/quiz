@@ -1,116 +1,113 @@
-const question = document.querySelector("#question");
-const choices = Array.from(document.querySelectorAll(".choice-text"));
-const progressTest = document.querySelector("#progressTest");
-const scoreText = document.querySelector("#score");
-const progresssBarFull = document.querySelector("#progresssBarFull");
-
-let currentQuestion = {};
-let acceptingAnswers = true;
-let score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
-var timerEl = document.querySelector("#timer");
-
-let questions = [
+var questions = [
 	{
-		question: "Commonly used data types DO NOT include:",
-		choice1: "strings",
-		choice2: "booleans",
-		choice3: "alerts",
-		choice4: "numbers",
-		answer: 2,
+		questionsTitle: "What is the Italian word for pie?",
+		choices: ["pizza", "pasta", "alerts", "macarroni"],
+		correctAnswer: "pizza",
 	},
 	{
-		question: "Whta the biggest City in the World?",
-		choice1: "NYC",
-		choice2: "Sao Paulo",
-		choice3: "Dubai",
-		choice4: "Las Vegas",
-		answer: 3,
+		questionsTitle: "What animals are pearls found in?",
+		choices: ["octupus", "whale", "oysters", "crab"],
+		correctAnswer: "oysters",
 	},
 	{
-		question: "The condition in an if / else statement is enclosed?",
-		choice1: "NYC",
-		choice2: "Sao Paulo",
-		choice3: "Dubai",
-		choice4: "Las Vegas",
-		answer: 4,
+		questionsTitle: "Which email service is owned by Microsoft?",
+		choices: ["gmail", "hotmail", "yahoo", "net"],
+		correctAnswer: "hotmail",
 	},
 	{
-		question: "The condition in an if / else statement is enclosed?",
-		choice1: "NYC",
-		choice2: "Sao Paulo",
-		choice3: "Dubai",
-		choice4: "Las Vegas",
-		answer: 4,
+		questionsTitle: "Which ocean surrounds the Maldives? ",
+		choices: ["Indic Ocean", "Pacific Ocean", "Atlantic Ocean", "Arctic Ocean"],
+		correctAnswer: "Indic Ocean",
+	},
+	{
+		questionsTitle: "What is one quarter of 1,000?",
+		choices: ["200", "230", "150", "250"],
+		correctAnswer: "250",
 	},
 ];
 
-var intervalId;
-var time = 20;
 
-const SCORE_POINTS = 100;
-const MAX_QUESTIONS = 4;
+var timer = document.querySelector("#timer");
+var startTime = document.querySelector("#startTime");
+var questionsSection = document.querySelector("#questionsSection");
+var wrapper = document.querySelector("#wrapper");
 
-startGame = () => {
-	questionCounter = 0;
-	score = 0;
-	availableQuestions = [...questions];
-	getNewQuestion();
-};
+var score = 0;
+var questionIndex = 0;
+var secondsLeft = 76;
+var holdInterval = 0;
+var penalty = 10;
+var addNewuL = document.createElement("ul");
 
-getNewQuestion = () => {
-	if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-		localStorage.setItem("mostRecentScore", score);
 
-		return window.location.assign("end.html");
-	}
+timer.addEventListener("click", function () {
+	// We are checking zero because its originally set to zero
+	if (holdInterval === 0) {
+		holdInterval = setInterval(function () {
+			secondsLeft--;
+			timer.textContent = "Time : " + secondsLeft;
 
-	questionCounter++;
-	progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-	// progresssBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
-
-	const questionsIndex = Math.floor(Math.random() * availableQuestions.length);
-	currentQuestion = availableQuestions[questionsIndex];
-	question.innerText = currentQuestion.question;
-
-	choices.forEach((choice) => {
-		const number = choice.dataset["number"];
-		choice.innerText = currentQuestion["choice" + number];
-	});
-
-	availableQuestions.splice(questionsIndex, 1);
-
-	acceptingAnswers = true;
-};
-
-choices.forEach((choice) => {
-	choice.addEventListener("click", (e) => {
-		if (!acceptingAnswers) return;
-
-		acceptingAnswers = false;
-		const selectedChoice = e.target;
-		const selectedAnswer = selectedChoice.dataset["number"];
-
-		let classToApply =
-			selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-
-		if (classToApply === "correct") {
-			incrementScore(SCORE_POINTS);
-		}
-
-		selectedChoice.parentElement.classList.add(classToApply);
-
-		setTimeout(() => {
-			selectedChoice.parentElement.classList.remove(classToApply);
-			getNewQuestion();
+			if (secondsLeft <= 0) {
+				clearInterval(holdInterval);
+				allDone();
+				timer.textContent = "Time's up!";
+			}
 		}, 1000);
-	});
+	}
 });
 
-incrementScore = (num) => {
-	score += num;
-	scoreText.innerText = score;
-};
+function render(questionIndex) {
+	questionsSection.innerHTML = "";
+	addNewuL.innerHTML = "";
+	for (var i = 0; i < questions.length; i++) {
+		var userQuestion = questions[questionIndex].questionsTitle;
+		var userChoices = questions[questionIndex].choices;
+		questionsSection.textContent = userQuestion;
+	}
+	userChoices.forEach(function (newItem) {
+		var listItem = document.createElement("li");
+		listItem.textContent = newItem;
+		questionsSection.appendChild(addNewuL);
+		addNewuL.appendChild(listItem);
+		listItem.addEventListener("click", compare);
+	});
+}
 
-startGame();
+function compare(event) {
+	var element = event.target;
+
+	if (element.matches("li")) {
+		var addNewDiv = document.createElement("div");
+		addNewDiv.setAttribute("id", "addNewDiv");
+		if (element.textContent == questions[questionIndex].correctAnswer) {
+			score++;
+			addNewDiv.textContent =
+				"Correct! The correctAnswer is:  " +
+				questions[questionIndex].correctAnswer;
+		} else {
+			secondsLeft = secondsLeft - penalty;
+			addNewDiv.textContent =
+				"WRONG !  The correct correctAnswer is:  " +
+				questions[questionIndex].correctAnswer;
+		}
+	}
+	questionIndex++;
+
+	if (questionIndex >= questions.length) {
+		// All done will append last page with user stats
+		allDone();
+		addNewDiv.textContent =
+			"End of quiz!" +
+			" " +
+			"You got  " +
+			score +
+			"/" +
+			questions.length +
+			" Correct!";
+	} else {
+		render(questionIndex);
+	}
+	questionsSection.appendChild(addNewDiv);
+} // All done will append last page - end.js
+
+render(questionIndex);
