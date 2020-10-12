@@ -76,7 +76,7 @@ function checkAnswer(event) {
 
 		questionResult.style.cssText =
 			"color: green; padding: 10px; margin: 5px;textAlign: center";
-		// apple style when it's correct
+		// apply style when it's correct
 	} else {
 		// incorrect
 		countDown -= penalty; // decrement the score by 1
@@ -121,7 +121,7 @@ function allDone() {
 	currentTime.innerHTML = "";
 
 	// create h1 with text "Game Over!!"
-	var addNewH1 = document.createElement("h1");
+	var addNewH1 = document.createElement("h2");
 	addNewH1.textContent = "Game Over!!";
 
 	// append h1 to the question section
