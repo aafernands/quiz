@@ -94,8 +94,8 @@ body {
 	justify-content: center;
 	align-items: center;
 	max-width: 80rem;
-	margin: 0 auto;
-	padding: 2rem;
+	margin-bottom: 30px;
+	padding: 20px;
 }
 
 .flex-column {

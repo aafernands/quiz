@@ -75,7 +75,7 @@ function checkAnswer(event) {
 			questions[questionIndex].correctAnswer;
 
 		questionResult.style.cssText =
-			"color: green; padding: 10px; margin: 5px;textAlign: center";
+			"color: green; padding: 10px; font-weight: bold; margin: 5px;textAlign: center";
 		// apply style when it's correct
 	} else {
 		// incorrect
@@ -89,7 +89,7 @@ function checkAnswer(event) {
 			"WRONG! 😮  The answer is:  " + questions[questionIndex].correctAnswer;
 
 		questionResult.style.cssText =
-			"color: red; padding: 10px; margin: 5px;textAlign: center;"; // apply style when it's wrong
+			"color: red; padding: 10px; font-weight: bold; margin: 5px;textAlign: center;"; // apply style when it's wrong
 	}
 
 	// increment the question index to the next question
