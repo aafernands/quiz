@@ -4,24 +4,22 @@ var questions = [
 		choices: ["Client", "Server", "Both", "None"],
 		correctAnswer: "Both",
 	},
-
 	{
 		questionsTitle:
 			"The external JavaScript file must contain the <script> tag.",
 		choices: ["True", "False"],
 		correctAnswer: "False",
 	},
-
 	{
 		questionsTitle:
-			"Which of the following will write the message “Hello DataFlair!” in an alert box?",
+			"Which of the following will write the message “Hello World!” in an alert box?",
 		choices: [
-			"alertBox(“Hello DataFlair!”);",
-			"alert(Hello DataFlair!);",
-			"msgAlert(“Hello DataFlair!”);",
-			"alert(“Hello DataFlair!”);",
+			"alertBox(“Hello World!”);",
+			"alert(Hello World!);",
+			"msgAlert(“Hello World!”);",
+			"alert(“Hello World!”);",
 		],
-		correctAnswer: "alert(“Hello DataFlair!”);",
+		correctAnswer: "alert(“Hello World!”);",
 	},
 	{
 		questionsTitle: "Which of the following statements will throw an error?",
@@ -49,160 +47,209 @@ var currentTime = document.querySelector("#currentTime");
 var startTime = document.querySelector("#startTime");
 var questionsSection = document.querySelector("#questionsSection");
 var wrapper = document.querySelector("#wrapper");
-
-var timeRemaining;
+var questionResult = document.querySelector("#questionResult");
 
 var score = 0;
 var questionIndex = 0;
-var secondsLeft = 76;
-var holdInterval = 0;
 var penalty = 10;
-var addNewuL = document.createElement("ul");
+// var choiceList = document.createElement("ul"); // use this if you are not creating the html
+var choiceList = document.querySelector("#choicesUl");
+var countDown = 75;
+var holdInterval;
 
-window.addEventListener(
-	"load",
-
-	function () {
-		if (holdInterval === 0) {
-			holdInterval = setInterval(function () {
-				secondsLeft--;
-				currentTime.textContent = "Time : " + secondsLeft;
-
-				if (secondsLeft <= 0) {
-					clearInterval(holdInterval);
-					allDone();
-					currentTime.textContent = "Time's up!";
-				}
-			}, 1000);
-		}
-	}
-);
-
-function render(questionIndex) {
-	questionsSection.innerHTML = "";
-	addNewuL.innerHTML = "";
-	for (var i = 0; i < questions.length; i++) {
-		var userQuestion = questions[questionIndex].questionsTitle;
-		var userChoices = questions[questionIndex].choices;
-		questionsSection.textContent = userQuestion;
-	}
-	userChoices.forEach(function (newItem) {
-		var listItem = document.createElement("li");
-		listItem.textContent = newItem;
-		questionsSection.appendChild(addNewuL);
-		addNewuL.appendChild(listItem);
-		listItem.addEventListener("click", compare);
-	});
-}
-
-function compare(event) {
+function checkAnswer(event) {
+	// li element, because you click on the li
 	var element = event.target;
 
-	if (element.matches("li")) {
-		var addNewDiv = document.createElement("div");
-		addNewDiv.setAttribute("id", "addNewDiv");
-		if (element.textContent == questions[questionIndex].correctAnswer) {
-			score++;
-			addNewDiv.textContent =
-				"CORRECT! 😃  The correct answer is:  " +
-				questions[questionIndex].correctAnswer;
-		} else {
-			secondsLeft = secondsLeft - penalty;
-			addNewDiv.textContent =
-				"WRONG! 😮  The answer is:  " + questions[questionIndex].correctAnswer;
-		}
-		setTimeout(function () {
-			addNewDiv.textContent = "";
-		}, 1500);
+	// pause timmer
+	stopTimmer();
+
+	// compare current click li text to current question answer
+	if (element.textContent === questions[questionIndex].correctAnswer) {
+		// correct
+		score++; // increment the score by 1
+
+		// let the user know that it's correct
+		questionResult.textContent =
+			"CORRECT! 😃  The correct answer is:  " +
+			questions[questionIndex].correctAnswer;
+
+		questionResult.style.cssText =
+			"color: green; padding: 10px; margin: 5px;textAlign: center";
+		// apple style when it's correct
+	} else {
+		// incorrect
+		countDown -= penalty; // decrement the score by 1
+
+		// update the count down view
+		currentTime.innerHTML = "Time : " + countDown;
+
+		// let the user know that it's incorrect
+		questionResult.textContent =
+			"WRONG! 😮  The answer is:  " + questions[questionIndex].correctAnswer;
+
+		questionResult.style.cssText =
+			"color: red; padding: 10px; margin: 5px;textAlign: center;"; // apply style when it's wrong
 	}
 
+	// increment the question index to the next question
 	questionIndex++;
 
-	if (questionIndex >= questions.length) {
-		allDone();
-		addNewDiv.textContent =
-			"End of quiz!" +
-			" " +
-			"You got  " +
-			score +
-			"/" +
-			questions.length +
-			" Correct!";
-	} else {
-		setTimeout(function () {
-			render(questionIndex);
-		}, 1500);
-	}
-	questionsSection.appendChild(addNewDiv);
+	// wait 2 sec to show the result then render the next question
+	setTimeout(function () {
+		// clear result
+		questionResult.textContent = "";
+
+		// check if the next index is greater than the question length; you are over the question
+		if (questionIndex >= questions.length) {
+			allDone();
+		} else {
+			// continue timer
+			startTimmer();
+
+			// if there still question left to display
+			renderQuizQuestion(questionIndex);
+		}
+	}, 2000);
 }
 
 function allDone() {
+	// clear question
 	questionsSection.innerHTML = "";
+
+	// clear timmer
 	currentTime.innerHTML = "";
 
+	// create h1 with text "Game Over!!"
 	var addNewH1 = document.createElement("h1");
-	addNewH1.setAttribute("id", "addNewH1");
 	addNewH1.textContent = "Game Over!!";
 
+	// append h1 to the question section
 	questionsSection.appendChild(addNewH1);
 
+	// create p tag with with id of addNewP - * addNewP have css style to change font size
 	var addNewP = document.createElement("p");
 	addNewP.setAttribute("id", "addNewP");
+	addNewP.textContent =
+		"Your final score is: " + score + "/" + questions.length;
+	// <p id="addNewP">Your final score is [score]/[question lenght]</p>
 
+	// append p to question section
 	questionsSection.appendChild(addNewP);
 
-	if (secondsLeft >= 0) {
-		timeRemaining = secondsLeft;
-		var addNewP2 = document.createElement("p");
-		clearInterval(holdInterval);
-		addNewP.textContent = "Your final score is: " + timeRemaining;
+	setTimeout(function () {
+		// prompt user for initial
+		initials = window.prompt("Please enter initial");
 
-		questionsSection.appendChild(addNewP2);
-	}
-
-	var addNewLabel = document.createElement("label");
-	addNewLabel.setAttribute("id", "addNewLabel");
-	addNewLabel.textContent = "Enter your initials: ";
-
-	questionsSection.appendChild(addNewLabel);
-
-	var createInput = document.createElement("input");
-	createInput.setAttribute("type", "text");
-	createInput.setAttribute("id", "initials");
-	createInput.textContent = "";
-
-	questionsSection.appendChild(createInput);
-
-	var addSubmitButton = document.createElement("button");
-	addSubmitButton.setAttribute("type", "submit");
-	addSubmitButton.setAttribute("id", "Submit");
-	addSubmitButton.textContent = "Submit";
-
-	questionsSection.appendChild(addSubmitButton);
-
-	addSubmitButton.addEventListener("click", function () {
-		var initials = createInput.value;
-
-		if (initials === null) {
-			console.log("No value entered!");
-		} else {
-			var finalScore = {
-				initials: initials,
-				score: timeRemaining,
-			};
-			console.log(finalScore);
-			var allScores = localStorage.getItem("allScores");
-			if (allScores === null) {
-				allScores = [];
-			} else {
-				allScores = JSON.parse(allScores);
-			}
-			allScores.push(finalScore);
-			var newScore = JSON.stringify(allScores);
-			localStorage.setItem("allScores", newScore);
-			// Travels to final page
+		// if canceled then go to high score
+		if (null) {
 			window.location.replace("highScores.html");
 		}
-	});
+
+		var finalScore = {
+			initials: initials || "Amymous",
+			score: score,
+		};
+
+		// get high score from local storage
+		var allScores = localStorage.getItem("allScores");
+
+		if (allScores === null) {
+			allScores = [];
+		} else {
+			allScores = JSON.parse(allScores);
+		}
+
+		allScores.push(finalScore);
+		var newScore = JSON.stringify(allScores);
+
+		// save high score to local stroage
+		localStorage.setItem("allScores", newScore);
+
+		// redirect to high score page
+		// window.location.href = 'highScores.html'
+		window.location.replace("highScores.html");
+	}, 3000);
 }
-render(questionIndex);
+
+function startTimmer() {
+	holdInterval = setInterval(function () {
+		countDown--;
+		currentTime.textContent = "Time : " + countDown;
+
+		if (countDown <= 0) {
+			clearInterval(holdInterval);
+			allDone();
+			currentTime.textContent = "Time's up!";
+		}
+	}, 1000);
+}
+
+function stopTimmer() {
+	clearInterval(holdInterval);
+}
+
+function renderQuizQuestion(questionIndex) {
+	// clearing the list in the UL
+	choiceList.innerHTML = "";
+
+	// grab the question from the array by the index
+	// question[question1, question2];
+	var quizChoices = questions[questionIndex].choices;
+	questionsSection.textContent = questions[questionIndex].questionsTitle;
+
+	// for each choice in the question create a li with click event and append to the choice list
+	quizChoices.forEach(function (choice) {
+		var listItem = document.createElement("li");
+		listItem.textContent = choice;
+		choiceList.appendChild(listItem);
+		listItem.addEventListener("click", checkAnswer); // when the li is clicked, checkAnswer the question with answer
+	});
+
+	// append the list to the question selection
+	questionsSection.appendChild(choiceList);
+}
+
+function shuffle(array) {
+	var currentIndex = array.length,
+		temporaryValue,
+		randomIndex;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+
+	return array;
+}
+
+function randomizeQuiz() {
+	questions = shuffle(questions);
+}
+
+function startQuiz() {
+	// randomlize quiz
+	randomizeQuiz();
+
+	// start timmer
+	startTimmer();
+
+	// render first question by passing in 0 index of the array
+	renderQuizQuestion(0);
+}
+
+// when page load run start quizk
+window.addEventListener("load", startQuiz);
+
+// when user switch to a different tab then stop timmer
+window.addEventListener("blur", stopTimmer);
+
+// when user switch back to quiz tab then start timmer
+window.addEventListener("focus", startTimmer);

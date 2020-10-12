@@ -5,7 +5,8 @@ body,
 .wrapper {
 	height: 100%;
 	margin: 0px;
-	padding: 0px;	
+	padding: 0px;
+	font-family: "Roboto", sans-serif;
 	background-image: linear-gradient(
 		0deg,
 		rgba(34, 193, 195, 1) 0%,
@@ -16,26 +17,28 @@ body,
 	background-attachment: fixed;
 }
 
-
 * {
 	box-sizing: border-box;
-	margin: 0px;
+	margin: 10px;
 	padding: 0px;
 	font-size: 15px;
 	font-family: "Roboto", sans-serif;
 }
 
-h1,
-#currentTime {
-	font-size: 40px;
-	color: rgb(0, 0, 0);
-	margin-bottom: 10px;
-}
+/* #currentTime {
+	position: absolute;
+} */
+
+
 
 #timer {
 	font-size: 30px;
 	color: #fff;
 	margin-bottom: 10px;
+}
+
+.col-sm {
+	font-size: 30px;
 }
 
 h6 {
@@ -44,14 +47,13 @@ h6 {
 	margin-bottom: 4rem;
 }
 
-.questionsSection {
+.wraper {
 	font-family: "Roboto", sans-serif;
 	color: #eee;
 	font-size: 25px;
 	padding: 20px;
-
-border-style: solid;
-bor
+	border-style: solid;
+	align-items: center;
 }
 
 .container {
@@ -89,6 +91,10 @@ bor
 	width: 100%;
 }
 
+.questionsSection {
+	padding: 40px;
+}
+
 .correct {
 	background: green;
 }
@@ -96,7 +102,6 @@ bor
 .incorrect {
 	background: red;
 }
-/* Heads up Display */
 
 #hud {
 	display: flex;
@@ -111,9 +116,6 @@ bor
 	text-align: center;
 }
 
-
-
-
 li {
 	background-color: #eee;
 	padding: 10px;
@@ -126,7 +128,6 @@ li:hover {
 	color: rgb(89, 89, 89);
 }
 
-
 #wrapper {
 	padding: 100px;
 }
@@ -136,7 +137,6 @@ li:hover {
 	padding: 20px;
 	align-items: center;
 	text-align: center;
-	
 }
 
 #addNewDiv {
@@ -175,27 +175,6 @@ ul {
 	color: rgb(59, 59, 59);
 }
 
-
-
-
-#addNewH1 {
-	animation: blinkingText 1.2s infinite;
-}
-@keyframes blinkingText {
-	0% {
-		color: rgb(142, 142, 142);
-	}
-	50% {
-		color: rgb(244, 235, 235);
-	}
-
-	100% {
-		color: rgb(0, 0, 0);
-	}
-}
-
-
-
 #Submit {
 	color: rgb(47, 47, 47);
 	background-color: #eee;
@@ -215,12 +194,14 @@ input {
 	font-size: 25px;
 }
 
-p, a{
-	font-size: 12px ;
+p,
+a {
+	font-size: 12px;
 }
 
-footer{
+footer {
 	margin: 0px;
-	padding: 0px 0px 50px 0px ;
-	text-align: center;	
+	padding: 0px 0px 50px 0px;
+	text-align: center;
 }
+
