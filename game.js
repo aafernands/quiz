@@ -71,8 +71,7 @@ function checkAnswer(event) {
 
 		// let the user know that it's correct
 		questionResult.textContent =
-			"CORRECT! 😃  The correct answer is:  " +
-			questions[questionIndex].correctAnswer;
+			"CORRECT! 😃  " 
 
 		questionResult.style.cssText =
 			"color: green; padding: 10px; font-weight: bold; margin: 5px;textAlign: center";
@@ -86,7 +85,7 @@ function checkAnswer(event) {
 
 		// let the user know that it's incorrect
 		questionResult.textContent =
-			"WRONG! 😮  The answer is:  " + questions[questionIndex].correctAnswer;
+			"WRONG! 😮  The correct answer is:  " + questions[questionIndex].correctAnswer;
 
 		questionResult.style.cssText =
 			"color: red; padding: 10px; font-weight: bold; margin: 5px;textAlign: center;"; // apply style when it's wrong
@@ -139,11 +138,11 @@ function allDone() {
 
 	setTimeout(function () {
 		// prompt user for initial
-		initials = window.prompt("Please enter initial");
+		initials = window.prompt("Please enter initials");
 
 		// if canceled then go to high score
 		if (null) {
-			window.location.replace("highScores.html");
+			window.location.replace("scores.html");
 		}
 
 		var finalScore = {
@@ -167,8 +166,8 @@ function allDone() {
 		localStorage.setItem("allScores", newScore);
 
 		// redirect to high score page
-		// window.location.href = 'highScores.html'
-		window.location.replace("highScores.html");
+		// window.location.href = 'scores.html'
+		window.location.replace("scores.html");
 	}, 3000);
 }
 
