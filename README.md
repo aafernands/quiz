@@ -1,4 +1,4 @@
-# HOMEWORK WEEK 4
+### HOMEWORK WEEK 4 - Coding Quiz 
 
 ## Assignment
 
@@ -26,6 +26,7 @@ The following gif video demonstrates the application functionality:
   - Google Fonts (https://fonts.google.com/);
   - W3 Schools (https://www.w3schools.com/);
 - The final version was pushed to homework repository at GitiHub at https://github.com/aafernands/code-quiz
+- Deployed Version: https://aafernands.github.io/code-quiz/ 
 
 ## Authors
 
