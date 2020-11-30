@@ -1,4 +1,5 @@
 # Quiz Game
+### HOMEWORK WEEK 4 - Coding Quiz 
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 ![GitHub license](https://img.shields.io/badge/Made%20by-%40aafernnads-orange)
@@ -35,6 +36,7 @@ The following gif video demonstrates the application functionality:
   - Bootstrap (https://getbootstrap.com/);
   - Google Fonts (https://fonts.google.com/);
   - W3 Schools (https://www.w3schools.com/);
+<<<<<<< HEAD
 - The final version was pushed to homework repository at GitiHub at https://github.com/aafernands/code-quiz.
 
 ## Questions?
@@ -48,6 +50,8 @@ Feel free to contact me for any question. Id be more then happy to help.
 [Email address](https://github.com/alexafernands@outloo.com)
 
 ## License
+- The final version was pushed to homework repository at GitiHub at https://github.com/aafernands/code-quiz
+- Deployed Version: https://aafernands.github.io/code-quiz/ 
 
 Copyright 2020 Alex Fernandes
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
