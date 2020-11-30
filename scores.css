@@ -104,10 +104,13 @@ ul {
 	font-size: 15px;
 }
 
-#questionsDiv {
-	
+#home {
+	background-color: rgb(77, 77, 77);
+	padding: 20px;
 }
 
+#questionsDiv {
+}
 
 footer {
 	width: 100%;

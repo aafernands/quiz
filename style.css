@@ -23,7 +23,8 @@ body {
 	background-attachment: fixed;
 }
 
-p, a {
+p,
+a {
 	font-size: 12px;
 	color: rgb(255, 255, 255);
 }
@@ -86,6 +87,11 @@ h6 {
 #highScore-btn:hover {
 	background-color: #dad611;
 	color: #ffffff;
+}
+
+#home {
+	background-color: rgb(77, 77, 77);
+	padding: 20px;
 }
 
 .fa-crown {
