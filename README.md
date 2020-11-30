@@ -1,5 +1,4 @@
 # Quiz Game
-### HOMEWORK WEEK 4 - Coding Quiz 
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 ![GitHub license](https://img.shields.io/badge/Made%20by-%40aafernnads-orange)
@@ -11,7 +10,7 @@
 | [License](#License)           |
 | [Contributing](#Contributing) |
 
-## Feratures
+## Features
 
 ---
 

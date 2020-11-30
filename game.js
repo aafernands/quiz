@@ -1,45 +1,35 @@
 var questions = [
 	{
-		questionsTitle: "JavaScript is a ____ -side programming language.",
-		choices: ["Client", "Server", "Both", "None"],
-		correctAnswer: "Both",
+		questionsTitle: "What colour forms when you mix blue and yellow paint together?",
+		choices: ["green", "black", "red", "blue"],
+		correctAnswer: "green",
 	},
 	{
 		questionsTitle:
-			"The external JavaScript file must contain the <script> tag.",
-		choices: ["True", "False"],
-		correctAnswer: "False",
+			"What is the largest land animal?",
+		choices: ["Whale", "African Elephant", "Anaconda", "Hippopotamus" ],
+		correctAnswer: "African Elephant",
 	},
 	{
 		questionsTitle:
-			"Which of the following will write the message “Hello World!” in an alert box?",
+			"How many legs does a spider have?",
 		choices: [
-			"alertBox(“Hello World!”);",
-			"alert(Hello World!);",
-			"msgAlert(“Hello World!”);",
-			"alert(“Hello World!”);",
+			"10",
+			"2",
+			"8",
+			"9",
 		],
-		correctAnswer: "alert(“Hello World!”);",
+		correctAnswer: "8",
 	},
 	{
-		questionsTitle: "Which of the following statements will throw an error?",
+		questionsTitle: "What is the yellow of an egg called?",
 		choices: [
-			"var fun = function bar( ){ }",
-			"var fun = function bar{ }",
-			"function fun( ){ }",
-			"function fun( )[]",
+			"The whites",
+			"The first",
+			"The Yolk",
+			"The middle",
 		],
-		correctAnswer: "var fun = function bar{ }",
-	},
-	{
-		questionsTitle: "How do you find the minimum of x and y using JavaScript? ",
-		choices: ["min(x,y);", "Math.min(xy)", " min(xy);", "Math.min(x,y)"],
-		correctAnswer: "Math.min(x,y)",
-	},
-	{
-		questionsTitle: "Inside which HTML element do we put the JavaScript?",
-		choices: ["<script>", "<javascript", "js", "None"],
-		correctAnswer: "<script>",
+		correctAnswer: "The Yolk",
 	},
 ];
 
